@@ -10,12 +10,16 @@ pacman -Syu --noconfirm \
 	nodejs \
 	npm yarn \
 	python \
+	python-pip \
 	tmux \
 	zsh \
 	powerline-fonts
 
 # symlink nvim
 ln -s /usr/bin/nvim /usr/bin/vim
+
+# Install python neovim
+pip install neovim
 
 # oh-my-zsh
 sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
