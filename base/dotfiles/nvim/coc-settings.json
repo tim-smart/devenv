@@ -1,0 +1,49 @@
+{
+  "languageserver": {},
+
+  "coc.preferences.formatOnSaveFiletypes": [
+    "css",
+    "dart",
+    "elixir",
+    "go",
+    "html",
+    "javascript",
+    "javascriptreact",
+    "json",
+    "markdown",
+    "ruby",
+    "rust",
+    "sql",
+    "typescript",
+    "typescriptreact",
+    "vue",
+    "yaml"
+  ],
+
+  "prettier.trailingComma": "all",
+  "prettier.disableLanguages": ["vue"],
+
+  "typescript.suggest.autoImports": true,
+
+  "vetur.format.enable": true,
+  "vetur.format.defaultFormatter.html": "prettier",
+
+  "sql.lintOnSave": false,
+  "sql.lintOnChange": false,
+  "sql.lintOnOpen": false,
+
+  "go.goplsOptions": {
+    "completeUnimported": true
+  },
+
+  "elixirLS.suggestSpecs": true,
+  "elixirLS.dialyzerEnabled": true,
+
+  "yaml.schemas": {
+    "kubernetes": "/*.yaml"
+  },
+
+  "typescript.suggestionActions.enabled": false,
+
+  "sql.database": "mysql"
+}
