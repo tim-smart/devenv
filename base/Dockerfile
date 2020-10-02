@@ -3,7 +3,7 @@ FROM archlinux
 ADD setup.sh /setup.sh
 RUN bash /setup.sh
 
-ADD dotfiles/zsh/.zshrc /root/.zshrc
+ADD dotfiles/zsh/.zshrc /root/
 ADD dotfiles/nvim/init.vim /root/.config/nvim/init.vim
 ADD dotfiles/coc/package.json /root/.config/coc/extensions/package.json
 

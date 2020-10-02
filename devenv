@@ -14,7 +14,10 @@ if [[ ! -z "$envtype" ]]; then
 	envtype="-$envtype"
 fi
 
-docker run \
+IMAGE=timsmart/devenv$envtype:latest
+# docker pull $IMAGE
+
+exec docker run \
 	--rm \
 	-it \
 	-v "$SCRIPTDIR/base/dotfiles/coc/package.json:/root/.config/coc/extensions/package.json" \
@@ -22,4 +25,4 @@ docker run \
 	-v "$SCRIPTDIR/base/dotfiles/nvim/coc-settings.json:/root/.config/nvim/coc-settings.json" \
 	-v "$SCRIPTDIR/base/dotfiles/zsh/.zshrc:/root/.zshrc" \
 	-v "$DIR:/root/code" \
-	timsmart/devenv$envtype:latest
+	$IMAGE

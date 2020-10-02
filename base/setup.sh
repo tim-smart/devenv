@@ -21,9 +21,8 @@ ln -s /usr/bin/nvim /usr/bin/vim
 # Install python neovim
 pip install neovim
 
-# oh-my-zsh
-sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
-chsh -s $(which zsh)
+# zinit
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/zdharma/zinit/master/doc/install.sh)"
 
 # vim-plug
 curl -fLo \
