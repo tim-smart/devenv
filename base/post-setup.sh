@@ -2,4 +2,4 @@
 nvim +'PlugInstall --sync' +qa
 
 # Install coc extensions
-cd /root/.config/coc/extensions && yarn install
+cd /root/.config/coc/extensions && npm install
