@@ -2,6 +2,8 @@ source ~/.zinit/bin/zinit.zsh
 source ~/.fzf.zsh
 
 setopt promptsubst
+autoload colors
+colors
 
 zinit wait lucid for \
     OMZL::git.zsh \
