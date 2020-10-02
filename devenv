@@ -10,8 +10,6 @@ case "$(uname -s)" in
 esac
 SCRIPTDIR="$(dirname "$SCRIPT")"
 
-echo $SCRIPTDIR
-
 if [[ ! -z "$envtype" ]]; then
 	envtype="-$envtype"
 fi
