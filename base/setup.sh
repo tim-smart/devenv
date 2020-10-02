@@ -13,6 +13,7 @@ pacman -Syu --noconfirm \
 	python-pip \
 	tmux \
 	zsh \
+	bat \
 	powerline-fonts
 
 # symlink nvim
