@@ -1,4 +1,5 @@
 source ~/.zinit/bin/zinit.zsh
+source ~/.fzf.zsh
 
 setopt promptsubst
 
@@ -18,3 +19,5 @@ zinit wait lucid for \
     OMZP::colored-man-pages \
   as"completion" \
     OMZP::docker/_docker
+
+export EDITOR=nvim
