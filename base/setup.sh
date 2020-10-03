@@ -1,4 +1,5 @@
-useradd -m tim
+useradd -m -G wheel tim
+echo "%wheel ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
 
 # packages
 pacman -Syu --noconfirm \
@@ -11,9 +12,12 @@ pacman -Syu --noconfirm \
 	npm yarn \
 	python \
 	python-pip \
+	go \
 	tmux \
 	zsh \
 	bat \
+	fasd \
+	expac yajl \
 	powerline-fonts
 
 # symlink nvim
@@ -22,13 +26,7 @@ ln -s /usr/bin/nvim /usr/bin/vim
 # Install python neovim
 pip install neovim
 
-# zinit
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/zdharma/zinit/master/doc/install.sh)"
-
-# vim-plug
-curl -fLo \
-	"${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim \
-	--create-dirs \
-	https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-
-mkdir /root/code
+# locale and timezone
+echo "LANG=en_US.UTF-8" > /etc/locale.conf
+locale-gen
+ln -sf /usr/share/zoneinfo/Pacific/Auckland /etc/localtime

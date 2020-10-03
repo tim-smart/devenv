@@ -6,6 +6,7 @@ autoload colors
 colors
 
 zinit wait lucid for \
+    OMZP::fasd \
     OMZL::git.zsh \
     OMZP::git \
     zpm-zsh/ls
@@ -27,3 +28,5 @@ export BAT_THEME="ansi-light"
 export EDITOR=nvim
 
 alias cat="bat"
+
+eval "$(rbenv init -)"

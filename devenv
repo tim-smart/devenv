@@ -1,7 +1,6 @@
 #!/bin/bash
 
-envtype=${1}
-DIR=${2:-$(pwd)}
+DIR=${1:-$(pwd)}
 
 SCRIPT=""
 case "$(uname -s)" in
@@ -21,13 +20,20 @@ if ! docker ps | grep -q pinata-sshd; then
 	bash "$SCRIPTDIR/tools/ssh-forward.sh"
 fi
 
+ruby_mounts=""
+if [ -f "$DIR/Gemfile" ]; then
+	mkdir -p "$DIR/.rbenv"
+	ruby_mounts="$(echo -v "$DIR/.rbenv:/home/tim/.rbenv")"
+fi
+
 exec docker run \
 	--rm \
 	-it \
 	-v ssh-agent:/ssh-agent -e SSH_AUTH_SOCK=/ssh-agent/ssh-agent.sock \
-	-v "$SCRIPTDIR/base/dotfiles/coc/package.json:/root/.config/coc/extensions/package.json" \
-	-v "$SCRIPTDIR/base/dotfiles/nvim/init.vim:/root/.config/nvim/init.vim" \
-	-v "$SCRIPTDIR/base/dotfiles/nvim/coc-settings.json:/root/.config/nvim/coc-settings.json" \
-	-v "$SCRIPTDIR/base/dotfiles/zsh/zshrc:/root/.zshrc" \
-	-v "$DIR:/root/code" \
+	-v "$SCRIPTDIR/base/dotfiles/coc/package.json:/home/tim/.config/coc/extensions/package.json" \
+	-v "$SCRIPTDIR/base/dotfiles/nvim/init.vim:/home/tim/.config/nvim/init.vim" \
+	-v "$SCRIPTDIR/base/dotfiles/nvim/coc-settings.json:/home/tim/.config/nvim/coc-settings.json" \
+	-v "$SCRIPTDIR/base/dotfiles/zsh/zshrc:/home/tim/.zshrc" \
+	$ruby_mounts \
+	-v "$DIR:/home/tim/code" \
 	$IMAGE
